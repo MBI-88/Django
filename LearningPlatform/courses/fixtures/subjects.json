@@ -1,0 +1,62 @@
+[
+{
+  "model": "courses.subject",
+  "pk": 1,
+  "fields": {
+    "title": "Python_Programing",
+    "slug": "python_programing"
+  }
+},
+{
+  "model": "courses.subject",
+  "pk": 2,
+  "fields": {
+    "title": "JavaScript_Programing",
+    "slug": "javascript_programing"
+  }
+},
+{
+  "model": "courses.subject",
+  "pk": 3,
+  "fields": {
+    "title": "HTML_CSS_Programing",
+    "slug": "html_css_programing"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 1,
+  "fields": {
+    "owner": 1,
+    "subject": 1,
+    "title": "Courso_Python",
+    "slug": "courso_python",
+    "overview": "Este curso es para principinates en la programacion en python",
+    "created": "2022-05-07T00:26:41.873Z"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 2,
+  "fields": {
+    "owner": 2,
+    "subject": 2,
+    "title": "Programacion_Javascript",
+    "slug": "programacion_javascript",
+    "overview": "Este curso es para la iniciacion en JavaScript",
+    "created": "2022-05-07T00:31:38.187Z"
+  }
+},
+{
+  "model": "courses.course",
+  "pk": 3,
+  "fields": {
+    "owner": 3,
+    "subject": 3,
+    "title": "Programacion_HTML_CSS",
+    "slug": "programacion_html_css",
+    "overview": "Curso introductorio a la programacion en HTML y CSS",
+    "created": "2022-05-07T00:32:43.841Z"
+  }
+}
+]

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Chat room for "{{course.title}}" {% endblock title %}
+
+{% block content %}
+    <div id="chat">
+    </div>
+    <div id="chat-input">
+        <input type="text" id="chat-message-input">
+        <input type="submit" id="chat-message-submit" value="Send">
+    </div>
+{% endblock content %}
+
+{% block domready %}
+    let url  = 'ws://' + window.location.host + '/ws/chat/room/' + '{{ course.id}}/'
+    const chatSocket = new WebSocket(url)
+
+    chatSocket.onmessage = event => {
+        let data = JSON.parse(event.data)
+        let message = data.message 
+
+        
+        let $chat = $('#chat')
+        $chat.append('<div class="message">' + message + '</div>')
+        $chat.scrollTop($chat[0].scrollHeight)
+        
+    }
+    chatSocket.onclose = event => {
+        console.error('Chat socket closed unexpectedly')
+    }
+
+    let $input = $('#chat-message-input')
+    const $submit = $('#chat-message-submit')
+
+    $submit.click(() => {
+        let message = $input.val()
+        if (message){
+            chatSocket.send(JSON.stringify({'message':message}))
+            $input.val('')
+            $input.focus()
+        }
+    })
+    $input.focus()
+    $input.keyup( e => {
+        if (e.which == 13){
+            $submit.click()
+        }
+    })
+{% endblock domready %}
+
