@@ -1,0 +1,15 @@
+{% extends "base.html" %} 
+{% load i18n %}
+
+{% block content %} 
+
+<form action="{% url 'set_language' %}" method="post"> {% csrf_token %}
+    <input name="next" type="hidden" value="{% url 'inicio' %}" />
+    <select name="language">
+        {% for lang in LANGUAGES %}
+            <option value="{{ lang.code }}">{{ lang.1 }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Go" />
+</form>
+{% endblock %}

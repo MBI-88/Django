@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de editores</title>
+</head>
+<body>
+    <!--
+        Para variar el uso de la vista se cambia el enlace
+        detalle-editor -> detalle_editores (para el uso de mixins)
+    -->
+    <div style="margin-left: 20px;">
+        <h2>Editores</h2>
+        {% if object_list %}
+            <ul>
+                {% for editores in object_list %} 
+                    <li style="color: brown;"><a href="{% url 'detalle_editores' editores.pk %}">{{editores.nombre}}</a></li>
+                {% endfor %} 
+
+            </ul>
+        {% else %} 
+            <span>No hay editores registrados</span>
+        {% endif %}
+    </div>
+    
+</body>
+</html>

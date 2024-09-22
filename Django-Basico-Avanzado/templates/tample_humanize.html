@@ -1,0 +1,17 @@
+{% extends "base.html" %} 
+
+{% block title %}Preuba de el modulo humanize{% endblock %} 
+
+{% block content %} 
+<div >
+    <h2>Vista de los filtros de humanizacion </h2>
+    {% load humanize %}
+    <main style="margin: 2em;">
+       <div><h4>Representacion de 3 digitos <strong>{{numberFloat|intcomma}}</strong></h4></div>
+       <div><h4>Representacion de numero a string: <strong>{{numberMillon|intword}}</strong></h4></div>
+       <div><h4>Representacion de fecha: <strong>{{timeNow|naturaltime}}</strong></h4></div>
+       <div><h4>Representacion de ordinales: <strong>{{ordinals|ordinal}}</strong></h4></div>
+
+    </main>
+</div>
+{% endblock %}

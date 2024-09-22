@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del libro</title>
+</head>
+<body>
+    <div>
+        <nav style="border: 15px;color:brown;color-scheme: dark;display: flow-root;font-size: medium;">
+            Solo para probar
+        </nav>
+        <h2>Titulo: {{libro.titulo}}</h2>
+        <ul>
+            <li>Autores: {{libro.autores}}</li>
+            <li>Editores: {{libro.editor}}</li>
+            <li>Fecha: {{libro.fecha_publicacion}}</li>
+            <li>Portada: <img src="{{libro.portada}}"></image></li>
+            <li>Paginas: {{libro.num_paginas}}</li>
+        </ul>
+        <p><a href="{% url 'lista-editores' %}">Lista de editores</a></p>
+        
+          
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros por editores</title>
+</head>
+<body>
+    <div style="margin-left: 20px;">
+        <h2>Libros</h2>
+        {% if librosXeditores %}
+            <ul>
+                {% for libro in librosXeditores %} 
+                    <li style="color: brown;"><a href="{% url 'detalles-autor' libro.pk %}">{{libro}}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %} 
+            <span>No hay libros para el editor</span>
+        {% endif %}
+        <span style="color: brown;"><a href="{% url 'lista-editores' %}">Lista editores</a></span>
+    </div>
+    
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probando el escape Html</title>
+</head>
+<body>
+    {% load tags %}
+    <div style="background: fixed;background-color: antiquewhite;">
+        <hgroup>
+            <h2>{{name|safe}}</h2>
+            <h3>{{cadena|default:"Esta es una cadena literal"}}</h3>
+        </hgroup>
+    </div>
+    <div style="background: fixed;background-color: aqua;">
+        <hgroup>
+            <h2>{{name|cortar:"k"}}</h2>
+            <h3>{{cadena|minusculas}}</h3>
+        </hgroup>
+        
+    </div>
+    <div style="background: fixed;background-color:beige;">
+        <p>La fecha actual es {% fecha_actual "%Y-%m-%d %I:%M %p" %}.</p>
+    </div>
+    <div style="background: fixed;background-color:rgb(100, 245, 220);">
+         {% fecha_actual2 "%Y-%m-%d %I:%M %p" %}
+         <span>Fecha: {{fecha_actual}}</span>
+    </div>
+    <div style="background: fixed;background-color:rgb(190, 20, 250);">
+        {% traer_fecha_actual "%Y-%M-%d %I:%M %p" as mi_fecha_actual %}
+        <p>Fecha: {{ mi_fecha_actual }}</p>
+   </div>
+   <div style="background: fixed;background-color: blanchedalmond;">
+       {% upper %}
+       <span>Mi nombre en mayusculas: {{name}}</span>
+       {% endupper %} 
+   </div>
+   {% do_comment %} 
+    Hola esto es una prueba de 
+    comentario
+    {% endcomment %}
+    <div style="background: fixed;background-color: bisque;">
+        <span><h2>Uso de método simple_tag</h2></span>
+        <h3>{% mi_prueba name %}</h3>
+        <h4>{% fecha_nueva "%d-%M-%Y %I:%M %p" %}</h4>
+        
+    </div>
+    
+</body>
+</html>

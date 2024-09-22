@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros recientemente ingresados</title>
+</head>
+<body>
+    <h2>Libros actuales encontrados</h2>
+    <div>
+        {% if libros_recientes %} 
+            <ul>
+                {% for libro in libros_recientes %} 
+                    <li>{{libro}}</li>
+                {% endfor %} 
+            </ul>
+        {% else %} 
+            <p>No hay libros recientes</p>
+        {% endif %} 
+    </div>
+    <p><a href="{% url 'lista-editores' %}">Lista editores</a></p>
+    
+</body>
+</html>

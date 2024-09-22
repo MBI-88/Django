@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de editores</title>
+</head>
+<body>
+    <div style="margin-left: 20px;">
+        <h2>Editor: {{editor.nombre}}</h2>
+        <ul>
+            <li>Domicilio: {{editor.domicilio}}</li>
+            <li>Ciudad: {{editor.ciudad}}</li>
+            <li>Estado: {{editor.estado}}</li>
+            <li>Pais: {{editor.pais}}</li>
+            <li>Sitio Web: {{editor.website}}</li>
+        </ul>
+        <p style="color: brown;"><a href="{% url 'lista-editores' %}">Lista de editores</a></p>
+        <p style="color: brown;"><a href="{% url 'libros-por-editores' editor.nombre %}">Libros publicados</a></p>
+    </div>
+    
+</body>
+</html>

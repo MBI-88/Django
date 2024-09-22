@@ -1,0 +1,51 @@
+{% extends "base.html" %} 
+{% load i18n %}
+{% block title %} {% translate "Vista internacionalizada" %} {% endblock %} 
+
+{% block content %}
+    <div style="margin: 2em;">
+        {% get_current_language as LANGUAGE_CODE %}
+        <!--Current language {{LANGUAGE_CODE}}-->
+        <p>{% translate "Welcome to our page" %}</p>
+    </div>
+    <div style="margin: 2em;">
+        {% language 'es' %} 
+            {% get_current_language as LANGUAGE_CODE %} 
+            <!--Current language: {{LANGUAGE_CODE}}-->
+            <p>{% translate "Welcome to our page" %}</p>
+        {% endlanguage %}
+    </div>
+    <div style="margin: 2em;">
+        <!--Obteniendo informacion de un lenguaje y los lenguajes de django-->
+        {% get_language_info for LANGUAGE_CODE as lang %} 
+        {% get_language_info for 'pl' as lang %}
+        <p>LANGUAGE CODE: {{ lang.code }} <br> </p>
+        <p>Name of language: {{ lang.name_local }} <br></p>
+        <p>Name in English: {{lang.name }} <br></p>
+        <p>Bi-directional: {{ lang.bidi }} <br></p>
+        <p>Name in the active language: {{ lang.name_translated }} <br></p>
+        <h3>Obtencion de valores por medio del procesador de contexto</h3>
+        <div>{{ LANGUAGE_BIDI}}</div> 
+        <div>{{ LANGUAGE_CODE}}</div>
+        <div>
+            {% for lan in LANGUAGES %} 
+                <li> <em>{{ lan }}</em></li>
+            {% endfor %}
+        </div>
+        <!--Filtros existentes para los lenguajes-->
+        <div style="margin-top: 1em;"></div>
+        <div>
+            {{ LANGUAGE_CODE|language_name }} (“German”)
+            {{ LANGUAGE_CODE|language_name_local }} (“Deutsch”)
+            {{ LANGUAGE_CODE|language_bidi }} (False)
+            {{ LANGUAGE_CODE|language_name_translated }} (“německy”, when active language is Czech)
+        </div>
+        
+        
+    </div>
+
+{% endblock %} 
+
+
+
+

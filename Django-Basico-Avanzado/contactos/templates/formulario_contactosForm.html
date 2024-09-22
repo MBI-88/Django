@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Form</title>
+</head>
+<body>
+    <hgroup><h1 style="color:brown;">Contactos</h1></hgroup>
+    {% if form.errors %} 
+        <p style="color:crimson;">Por favor corrige lo siguiente:</p>
+    {% endif %} 
+    <form action="" method="post"> {% csrf_token %} 
+        <table style="color:rgba(0, 81, 255, 0.829)">
+            {{form.as_table}}
+        </table>
+        <input  type="submit" value="Enviar">
+    </form>
+
+</body>
+</html>

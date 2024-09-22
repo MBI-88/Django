@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Formulario generico</title>
+</head>
+<body>
+    <h1>Autor agregar/actualizar/borrar</h1>
+    {% if form.errors %}
+        <p style="color: red;">
+        Por favor corrige lo siguiente:
+        </p>
+    {% endif %}
+    <form action="" method="post">{% csrf_token %}
+        <div class="field">
+            {{ form.nombre.errors }}
+            <label for="id_nombre">Nombre:</label>
+            {{ form.nombre }}
+        </div>
+        <div class="field">
+            {{ form.apellidos.errors }}
+                <label for="id_apellidos">Apellidos:</label>
+                {{ form.apellidos }}
+        </div>
+        <div class="field">
+            {{ form.email.errors }}
+            <label for="id_email">Email:</label>
+            {{ form.email }}
+        </div>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
